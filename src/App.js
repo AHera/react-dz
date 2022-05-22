@@ -2,18 +2,14 @@
 import { css } from "@emotion/react";
 
 import notes from "./data/notes.json";
-import RandomID from "./components/RandomID";
+import NotesList from "./components/NotesList";
 
 function App() {
-  const blocks = notes.map(({ title, date, description }) => (
-    <div className="note" key={RandomID(5)}>
-      <div className="title">{title}</div>
-      <div className="date">{date}</div>
-      <div className="description">{description}</div>
+  return (
+    <div className="note-list">
+      <NotesList notes={notes} />
     </div>
-  ));
-
-  return <div>{blocks}</div>;
+  );
 
   // return (
   //   <div

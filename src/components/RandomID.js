@@ -1,4 +1,4 @@
-const makeid = (length) => {
+const RandomID = (length) => {
   var result = "";
   var characters =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -9,4 +9,4 @@ const makeid = (length) => {
   return result;
 };
 
-export default makeid;
+export default RandomID;
