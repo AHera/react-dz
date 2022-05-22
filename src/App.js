@@ -1,23 +1,20 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 
-import notes from "./data/notes.json";
+import Notes from "./data/Notes.json";
 import NotesList from "./components/NotesList";
 
 function App() {
   return (
-    <div className="note-list">
-      <NotesList notes={notes} />
+    <div
+      css={css`
+        margin: auto;
+        max-width: 800px;
+      `}
+    >
+      <NotesList notes={Notes} />
     </div>
   );
-
-  // return (
-  //   <div
-  //     css={css`
-  //       background: yellow;
-  //     `}
-  //   ></div>
-  // );
 }
 
 export default App;
