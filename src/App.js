@@ -4,6 +4,7 @@ import { css } from "@emotion/react";
 import Notes from "./data/Notes.json";
 import NotesList from "./components/NotesList";
 import AddButton from "./components/AddButton";
+import FormCreateNote from "./components/FormCreateNote";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         max-width: 800px;
       `}
     >
+      <FormCreateNote />
       <AddButton />
       <NotesList notes={Notes} />
     </div>
