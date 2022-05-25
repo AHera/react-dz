@@ -23,19 +23,6 @@ function FormCreateNote() {
         }
       `}
     >
-      <div
-        css={css`
-          position: absolute;
-          right: 5px;
-          top: 5px;
-          width: 25px;
-          height: 25px;
-          font-size: 25px;
-          cursor: pointer;
-        `}
-      >
-        &#10006;
-      </div>
       <input name="title" type="text" placeholder="Название заметки" />
       <input
         css={css`
