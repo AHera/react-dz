@@ -1,12 +1,13 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
+import { useState } from "react";
 
-import Notes from "./data/Notes.json";
+import Storage from "./components/Storage";
 import NotesList from "./components/NotesList";
-
 import Popup from "./components/Popup";
 
 function App() {
+  const [notesObj, setNotes] = useState(Storage.getNotes());
   return (
     <div
       css={css`
@@ -14,8 +15,8 @@ function App() {
         max-width: 800px;
       `}
     >
-      <Popup />
-      <NotesList notes={Notes} />
+      <Popup setNotes={setNotes} />
+      <NotesList notes={notesObj} />
     </div>
   );
 }

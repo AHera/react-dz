@@ -3,7 +3,7 @@ import { css } from "@emotion/react";
 import { useState } from "react";
 import FormCreateNote from "./FormCreateNote";
 
-function Popup() {
+function Popup(setNotes) {
   const [isOpen, setIsOpen] = useState(false);
 
   const onOpenClick = () => {
@@ -14,11 +14,7 @@ function Popup() {
   };
 
   return (
-    <div
-      css={css`
-        position: relative;
-      `}
-    >
+    <div>
       <div
         onClick={onOpenClick}
         css={css`
@@ -38,27 +34,48 @@ function Popup() {
       >
         +
       </div>
-      <div
-        css={css`
-          display: ${isOpen ? "block" : "none"};
-        `}
-      >
-        <FormCreateNote />
-        <span
-          onClick={onCloseClick}
+      {isOpen && (
+        <div
           css={css`
             position: absolute;
-            right: 5px;
-            top: 5px;
-            width: 25px;
-            height: 25px;
-            font-size: 25px;
-            cursor: pointer;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #0000005e;
+            align-items: center;
+            display: flex;
           `}
         >
-          &#10006;
-        </span>
-      </div>
+          <div
+            css={css`
+              display: ${isOpen ? "block" : "none"};
+              margin: 0 auto;
+              position: relative;
+              border: 1px solid;
+              background: #e6eced;
+            `}
+          >
+            <span
+              onClick={onCloseClick}
+              css={css`
+                position: absolute;
+                right: 5px;
+                top: 5px;
+                width: 25px;
+                height: 25px;
+                font-size: 25px;
+                cursor: pointer;
+              `}
+            >
+              &#10006;
+            </span>
+            <FormCreateNote setNotes={setNotes} />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
