@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 
-import RandomID from "./RandomID";
+import RandomID from "../../hooks/RandomID";
 import NoteItem from "./NoteItem";
 
 function NoteList({ notes }) {

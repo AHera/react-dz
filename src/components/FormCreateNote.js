@@ -1,27 +1,10 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import CreateDate from "./CreateDate";
-import Storage from "./Storage";
 
-function FormCreateNote(setNotes) {
-  const onFormSubmit = function (event) {
-    event.preventDefault();
-
-    const newNote = {
-      title: event.target.title.value,
-      date: CreateDate(),
-      description: event.target.description.value,
-    };
-
-    const currentNotes = Storage.getNotes();
-    currentNotes.push(newNote);
-    Storage.setNotes(currentNotes);
-    setNotes(false);
-  };
-
+function FormCreateNote({ onSubmit }) {
   return (
     <form
-      onSubmit={onFormSubmit}
+      onSubmit={onSubmit}
       css={css`
         position: relative;
         margin: 15px 35px;

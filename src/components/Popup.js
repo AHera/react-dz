@@ -1,9 +1,9 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import { useState } from "react";
-import FormCreateNote from "./FormCreateNote";
 
-function Popup(setNotes) {
+import { useEffect, useState } from "react";
+
+function Popup({ children, isClosePopup }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const onOpenClick = () => {
@@ -12,6 +12,12 @@ function Popup(setNotes) {
   const onCloseClick = () => {
     setIsOpen(false);
   };
+
+  useEffect(() => {
+    if (isClosePopup) {
+      setIsOpen(false);
+    }
+  }, [isClosePopup]);
 
   return (
     <div>
@@ -72,7 +78,7 @@ function Popup(setNotes) {
             >
               &#10006;
             </span>
-            <FormCreateNote setNotes={setNotes} />
+            {children}
           </div>
         </div>
       )}

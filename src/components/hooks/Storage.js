@@ -1,4 +1,4 @@
-import Notes from "../data/Notes.json";
+import Notes from "../../data/Notes.json";
 
 const Storage = {
   isNotes() {
